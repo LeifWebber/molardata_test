@@ -97,6 +97,12 @@
   background-position: right 10px center;
   
   transition: all 0.2s ease;
+  
+  /* Prevent layout breaking with long filenames */
+  max-width: 200px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .navbar__select:hover {
