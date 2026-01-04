@@ -1,0 +1,186 @@
+.navbar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  
+  /* 毛玻璃效果 */
+  background: rgba(20, 20, 30, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 
+    0 4px 24px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.navbar__section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar__divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.navbar__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* 工具按钮 */
+.navbar__tool-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  
+  padding: 8px 14px;
+  border: none;
+  border-radius: 10px;
+  
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.navbar__tool-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.navbar__tool-btn--active {
+  background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+  color: #000;
+  box-shadow: 0 2px 12px rgba(74, 222, 128, 0.4);
+}
+
+.navbar__tool-btn--active:hover {
+  background: linear-gradient(135deg, #5eead4 0%, #4ade80 100%);
+  color: #000;
+}
+
+/* 文件选择器 */
+.navbar__select {
+  padding: 8px 12px;
+  padding-right: 32px;
+  border: none;
+  border-radius: 10px;
+  
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  
+  transition: all 0.2s ease;
+}
+
+.navbar__select:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.navbar__select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.3);
+}
+
+.navbar__select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+
+/* 计时显示 */
+.navbar__timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar__timer-icon {
+  font-size: 14px;
+}
+
+.navbar__timer-value {
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: #4ade80;
+  min-width: 80px;
+}
+
+.navbar__timer-value--idle {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* 点数显示 */
+.navbar__point-count {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-variant-numeric: tabular-nums;
+}
+
+/* 加载状态 */
+.navbar__loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+}
+
+.navbar__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top-color: #4ade80;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: calc(100vw - 32px);
+  }
+  
+  .navbar__divider {
+    display: none;
+  }
+}

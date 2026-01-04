@@ -1,0 +1,7 @@
+/* App 样式 - 最小化，主要样式在组件内 */
+
+#root {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
