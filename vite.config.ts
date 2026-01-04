@@ -12,4 +12,17 @@ export default defineConfig({
     //   },
     // }
   )],
+  assetsInclude: ['**/*.pcd'],
+  build: {
+    chunkSizeWarningLimit: 1500, // 调整警告阈值，Three.js 比较大，适当调高
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        }
+      }
+    }
+  }
 })
